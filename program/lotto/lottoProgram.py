@@ -18,6 +18,7 @@
 # 필요 모듈 불러오기
 import random
 
+
 def menu():
 
     while True:
@@ -27,18 +28,18 @@ def menu():
         inputtext = "입력 : "
         select = int(input(answwer + exam + inputtext))
 
-        if select == 1:  # 1 입력 시, random함수를 통해 6자리 숫자 추출하기
+        if select == 1:  # 자동으로 random함수를 통해 6자리 숫자 추출하기
             print("로또 자동으로 구매합니다.")
             user_num = random.sample(range(1, 46), 6)
             print("사용자 구매 번호", sorted(user_num))
-            lotto()
+            result()
 
-        elif select == 2:
+        elif select == 2:  # 1 입력 시, random함수를 통해 6자리 숫자 추출하기
             print("로또 수동으로 구매합니다.")
             for i in range(0, 6):
                 user_num.append(int(input("{} 숫자 : ".format(i+1))))
             print("사용자 구매 번호", sorted(user_num))
-            lotto()
+            result()
 
         elif select == 3:
             print("로또를 종료합니다.")
@@ -46,11 +47,9 @@ def menu():
 
         else:
             print("정확한 숫자를 입력해주세요.")
-    return user_num
 
 
 def lotto():
-    results = {}
 
     print("로또 구매 시간이 지났습니다.")
     print("담청자를 조회합니다.")
@@ -58,18 +57,16 @@ def lotto():
     lotto_num = random.sample(range(1, 46), 7)  # random함수를 통해 당첨번호 7개의 숫자 추출하기
     bonus = [lotto_num[6]]  # 보너스 번호는 lotto_num의 마지막 번호를 받아오기
 
-    results["lotto_num"] = lotto_num
-
     print("로또 번호", sorted(lotto_num[:6]))
     print("보너스 로또 번호 : ", bonus[0])
-    result()
-    return results
 
 
 def result():
-    selectmoney = "담첨 금액 : "
+    lotto()
+    selectmoney = "총 담첨 금액 : "
     money = random.choice(range(1000000000, 10000000000))
-    print(selectmoney + format(int(money / 3), ','))
+
+    print(selectmoney + format(int(money), ','))
 
 
 def start():
