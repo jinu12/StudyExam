@@ -33,19 +33,20 @@
 #         else:
 #             print(Totallist[i])
 #             print(Totallist.count(Totallist[i]))
-count = 0
-A = int(input())
-B = int(input())
-C = int(input())
-Total = A * B * C
-Totallist = sorted([int(a) for a in str(Total)])
 
-for i in range(10):
-    for j in Totallist:
-        if i == j:
-            count += 1
-    print(count)
-    count = 0
+# count = 0
+# A = int(input())
+# B = int(input())
+# C = int(input())
+# Total = A * B * C
+# Totallist = sorted([int(a) for a in str(Total)])
+#
+# for i in range(10):
+#     for j in Totallist:
+#         if i == j:
+#             count += 1
+#     print(count)
+#     count = 0
 
 
 
