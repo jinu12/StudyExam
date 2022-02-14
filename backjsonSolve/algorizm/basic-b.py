@@ -48,15 +48,32 @@
 #     M = M - 45
 # print("{} {}".format(H, M))
 # 오븐 시계
+# from sys import stdin
+# H, M = stdin.readline().split()
+# H, M = int(H), int(M)
+# C = int(stdin.readline())
+# if M + C >= 60:
+#     H = H + (M+C) // 60
+#     M = (M+C) % 60
+#     if H >= 24:
+#         H = H - 24
+# else:
+#     M += C
+# print("{} {}".format(H, M))
+
+# 주사위 세 개
+# 같은 눈이 3개가 나오면 10,000원+(같은 눈)×1,000원의 상금을 받게 된다.
+# 같은 눈이 2개만 나오는 경우에는 1,000원+(같은 눈)×100원의 상금을 받게 된다.
+# 모두 다른 눈이 나오는 경우에는 (그 중 가장 큰 눈)×100원의 상금을 받게 된다.
 from sys import stdin
-H, M = stdin.readline().split()
-H, M = int(H), int(M)
-C = int(stdin.readline())
-if M + C >= 60:
-    H = H + (M+C) // 60
-    M = (M+C) - 60
-    if H >= 24:
-        H = H - 24
-    else:
-        M = M + C
-print("{} {}".format(H, M))
+A, B, C = stdin.readline().split()
+A, B, C = int(A), int(B), int(C)
+numlist = [A, B, C]
+if A == B == C:
+    print(10000 + 1000 * A)
+elif A == B != C or A == C != B:
+    print(1000 + 100 * A)
+elif B == C != A or B == A != C:
+    print(1000 + 100 * B)
+else:
+    print(max(numlist) * 100)
