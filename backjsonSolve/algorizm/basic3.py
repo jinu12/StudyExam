@@ -47,6 +47,25 @@
 #             count += 1
 #     print(count)
 #     count = 0
-
+from sys import stdin
+count = 0
+numlist = list()
+x = list()
+y = list()
+for i in range(10):
+    numlist.append(int(stdin.readline()))
+print(numlist)
+for i in numlist:
+    x.append(i % 42)
+print(x)
+for i in range(len(x)):
+    for j in range(len(x)):
+        if x[i] == x[j]:
+            count = count + 1
+            if count == 2:
+                print(x[i])
+                y.append(x[i])
+    count = 0
+print(len(x)-len(y))
 
 
