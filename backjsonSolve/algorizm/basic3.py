@@ -75,15 +75,60 @@
 세준이의 성적을 위의 방법대로 새로 계산했을 때, 새로운 평균을 구하는 프로그램을 작성하시오.
 """
 
+# from sys import stdin
+#
+# C = list()
+# N = int(stdin.readline())
+# total = 0
+# B = stdin.readline().split()
+# for i in range(N):
+#     C.append(int(B[i]))
+# for i in C:
+#     total += i
+# print(total / len(C) / max(C) * 100)
+
+
+# "OOXXOXXOOO"와 같은 OX퀴즈의 결과가 있다. O는 문제를 맞은 것이고, X는 문제를 틀린 것이다.
+# 문제를 맞은 경우 그 문제의 점수는 그 문제까지 연속된 O의 개수가 된다. 예를 들어, 10번 문제의 점수는 3이 된다.
+# "OOXXOXXOOO"의 점수는 1+2+0+0+1+0+0+1+2+3 = 10점이다.
+# OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오.
+
+# from sys import stdin
+# X = list()
+# N = int(stdin.readline())
+# OX = list()
+# for i in range(N):
+#     X.append(stdin.readline().split())
+# for i in X:
+#     OX.append(i)
+# print(len(X[0]))
+# for i in range(len(X[0])):
+#     print(str(X[0][i]), end='  ')
+
+# 평균은 넘겠지
+# 첫째 줄에는 테스트 케이스의 개수 C가 주어진다.
+# 둘째 줄부터 각 테스트 케이스마다 학생의 수 N(1 ≤ N ≤ 1000, N은 정수)이 첫 수로 주어지고, 이어서 N명의 점수가 주어진다. 점수는 0보다 크거나 같고, 100보다 작거나 같은 정수이다.
+
 from sys import stdin
-
-C = list()
-N = int(stdin.readline())
+X = list()
+N = list()
+CN = list()
 total = 0
-B = stdin.readline().split()
-for i in range(N):
-    C.append(int(B[i]))
-for i in C:
-    total += i
-print(total / len(C) / max(C) * 100)
+count = 0
+C = int(stdin.readline())
+for i in range(C):
+    X.append(stdin.readline().split())
+    N.append(int(X[i][0]))
+    del X[i][0]
+for i in range(len(X)):
+    for j in range(len(X[i])):
+        total += int(X[i][j])
+    for j in range(len(X[i])):
+        if total / N[i] < int(X[i][j]):
+            count = count + 1
+    print("%.3f" % (count / N[i] * 100) + "%")
+    count = 0
+    total = 0
 
+
+# for i in range(len)
