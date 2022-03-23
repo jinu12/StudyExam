@@ -1,2 +1,3 @@
 # backjoonSolve
-solve backjoon quiz and Algorithm
+
+backjoon solve remove https://github.com/jinu12/backjoon
